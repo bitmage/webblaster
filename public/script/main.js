@@ -36,6 +36,8 @@
 		if (e.keyCode == 39) states.right = true;
 		if (e.keyCode == 37) states.left  = true;
 		if (e.keyCode == 32) states.space = true;
+
+		e.preventDefault();
 	}
 
 	var released = function(e) {
@@ -44,6 +46,8 @@
 		if (e.keyCode == 39) states.right = false;
 		if (e.keyCode == 37) states.left  = false;
 		if (e.keyCode == 32) states.space = false;
+
+		e.preventDefault();
 	}
 
 	$(document).keydown(pressed);
