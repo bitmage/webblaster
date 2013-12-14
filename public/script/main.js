@@ -85,11 +85,12 @@
 
 	var render = function() {
 		ctx.clearRect(0, 0, WIDTH, HEIGHT);
+		ctx.fillStyle = '#FF0000';
 
 		for (var i = bullets.length - 1; i >= 0; i--) {
 			var bullet = bullets[i];
 
-			ctx.fillRect(bullet.x, bullet.y, 20, 2);
+			ctx.fillRect(bullet.x, bullet.y, 30, 4);
 		};
 
 		var image;
