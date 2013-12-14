@@ -1,13 +1,19 @@
 (function(){
 	WIDTH = $('#webblaster').width();
-  	HEIGHT = $('#webblaster').height();
+ 	HEIGHT = $('#webblaster').height();
 	
   	var canvas = $('#webblaster')[0];
 	var ctx    = canvas.getContext('2d');
 
-	var x    = 0;
-	var y    = 0;
-	var left = false;
+	var x     = 0;
+	var y     = 0;
+	var left  = false;
+
+	var lship = new Image();
+	lship.src = '/img/lship.png';
+
+	var rship = new Image();
+	rship.src = '/img/rship.png';
 
 	var states = {
 		up: false,
@@ -47,10 +53,12 @@
 	}
 
 	var render = function() {
-		if (left) ctx.fillStyle  = '#00FF00';
-		if (!left) ctx.fillStyle = '#0000FF';
 		ctx.clearRect(0, 0, WIDTH, HEIGHT);
-		ctx.fillRect(x, y, 20, 20);
+
+		var image;
+		if (left) image = lship;
+		else      image = rship;
+		ctx.drawImage(image, x, y);
 	}
 
 	setInterval(update, 10);
