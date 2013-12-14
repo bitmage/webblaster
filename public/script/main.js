@@ -10,10 +10,10 @@
 	var canvas = $('#webblaster')[0];
 	var ctx    = canvas.getContext('2d');
 
-	var x     = 0;
-	var y     = 0;
-	var left  = false;
-	var fire  = false;
+	var x      = 0;
+	var y      = 0;
+	var left   = false;
+	var fired  = new Date();
 
 	var lship = new Image();
 	lship.src = '/img/lship.png';
@@ -60,7 +60,9 @@
 			left = false;
 			x += SPEED;
 		}
-		if (states.space) {
+
+		var fired_delta = ((new Date().getTime()) - fired.getTime());
+		if (states.space && fired_delta > 500) {
 			var offsetx = OFFSET_X;
 			if (left) offsetx = -offsetx;
 			var bullet = {
@@ -69,6 +71,8 @@
 				y:    y + OFFSET_Y,
 			}
 			bullets.push(bullet);
+
+			fired = new Date();
 		}
 
 		for (var i = bullets.length - 1; i >= 0; i--) {
