@@ -1,8 +1,9 @@
 (function(){
+	SPEED = 3;
 	WIDTH = $('#webblaster').width();
- 	HEIGHT = $('#webblaster').height();
+	HEIGHT = $('#webblaster').height();
 	
-  	var canvas = $('#webblaster')[0];
+	var canvas = $('#webblaster')[0];
 	var ctx    = canvas.getContext('2d');
 
 	var x     = 0;
@@ -40,15 +41,15 @@
 	$(document).keyup(released);
 
 	var update = function() {
-		if (states.up) y--;
-		if (states.down) y++;
+		if (states.up) y -= SPEED;
+		if (states.down) y += SPEED;
 		if (states.left) {
 			left = true;
-			x--;
+			x -= SPEED;
 		}
 		if (states.right) {
 			left = false;
-			x++;
+			x += SPEED;
 		}
 	}
 
