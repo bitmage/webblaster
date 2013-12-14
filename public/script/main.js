@@ -9,8 +9,11 @@
 	var y     = 0;
 	var left  = false;
 
-	var shipLeft = new Image();
-	shipLeft.src = '/img/ship.png';
+	var lship = new Image();
+	lship.src = '/img/lship.png';
+
+	var rship = new Image();
+	rship.src = '/img/rship.png';
 
 	var states = {
 		up: false,
@@ -51,7 +54,11 @@
 
 	var render = function() {
 		ctx.clearRect(0, 0, WIDTH, HEIGHT);
-		ctx.drawImage(shipLeft, x, y);
+
+		var image;
+		if (left) image = lship;
+		else      image = rship;
+		ctx.drawImage(image, x, y);
 	}
 
 	setInterval(update, 10);
