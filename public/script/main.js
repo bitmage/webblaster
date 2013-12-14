@@ -1,4 +1,5 @@
 (function(){
+  console.log($('#webblaster'));
 	SPEED = 3;
 	WIDTH = $('#webblaster').width();
 	HEIGHT = $('#webblaster').height();
@@ -11,10 +12,10 @@
 	var left  = false;
 
 	var lship = new Image();
-	lship.src = '/img/lship.png';
+	lship.src = 'http://localhost:8000/img/lship.png';
 
 	var rship = new Image();
-	rship.src = '/img/rship.png';
+	rship.src = 'http://localhost:8000/img/rship.png';
 
 	var states = {
 		up: false,
