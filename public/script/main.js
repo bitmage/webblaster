@@ -5,8 +5,9 @@
   	var canvas = $('#webblaster')[0];
 	var ctx    = canvas.getContext('2d');
 
-	var x = 0;
-	var y = 0;
+	var x    = 0;
+	var y    = 0;
+	var left = false;
 
 	var states = {
 		up: false,
@@ -35,11 +36,19 @@
 	var update = function() {
 		if (states.up) y--;
 		if (states.down) y++;
-		if (states.left) x--;
-		if (states.right) x++;
+		if (states.left) {
+			left = true;
+			x--;
+		}
+		if (states.right) {
+			left = false;
+			x++;
+		}
 	}
 
 	var render = function() {
+		if (left) ctx.fillStyle  = '#00FF00';
+		if (!left) ctx.fillStyle = '#0000FF';
 		ctx.clearRect(0, 0, WIDTH, HEIGHT);
 		ctx.fillRect(x, y, 20, 20);
 	}
