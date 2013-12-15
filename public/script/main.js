@@ -4,10 +4,12 @@
 	OFFSET_X     = 120;
 	OFFSET_Y     = 90;
 
-	WIDTH  = $('#webblaster').width();
-	HEIGHT = $('#webblaster').height();
-	
 	var canvas = $('#webblaster')[0];
+	canvas.width = $('body').width();
+	canvas.height = $('body').height();
+	WIDTH  = canvas.width;
+	HEIGHT = canvas.height;
+
 	var ctx    = canvas.getContext('2d');
 
 	var x      = 0;
